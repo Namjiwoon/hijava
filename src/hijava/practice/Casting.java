@@ -1,7 +1,7 @@
 package hijava.practice;
 
 public class Casting {
-
+	//000
 	public static void main(String[] args) {
 		byte b = 1;
 		int i = b;
