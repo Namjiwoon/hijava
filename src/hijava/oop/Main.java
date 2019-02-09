@@ -9,8 +9,13 @@ public class Main {
 	public static void main(String[] args) {
 		// momAndSon();
 		// drinkTest();
-		eatTest();
-
+		// eatTest();
+		//animal();
+		//netSport();
+		//software();
+		//testInter();
+		total();
+		
 		/*
 		 * ArrayList<Man> people = new ArrayList<>(9);
 		 * 
@@ -26,6 +31,53 @@ public class Main {
 		 * 
 		 * }
 		 */
+	}
+	
+	private static void total() {
+		int[] arr = new int[] {1, 2, 5, 9};
+		Subtotal tt = new Subtotal();
+		Total st = new TotalImpl();
+		
+		System.out.println("Total=" + st.sum(arr));
+		System.out.println("Avg=" + tt.avg(arr));
+	}
+	
+	private static void testInter() {
+		TestInterface ti = new TestImpl();
+		
+		int i = 10, j = 5;
+		ti.max(i, j);
+		TestInterface.out(100);
+	}
+	
+	private static void software() {
+		SoftWare web = new WebSite();
+		SoftWare app = new MobileApp();
+		
+		web.product();
+		System.out.println("-------------");
+		app.product();
+	}
+	
+	private static void netSport() {
+		NetSport pp = new PingPong();
+		NetSport te = new Tennis();
+		
+		pp.play();
+		System.out.println("-------------");
+		te.play();
+	}
+	
+	private static void animal() {
+		Animal dog = new Dog();
+		Animal cat = new Cat();
+		
+		barkAnimal(dog);
+		barkAnimal(cat);
+	}
+	
+	private static void barkAnimal(Animal ani) {
+		ani.bark();
 	}
 
 	private static void eatTest() {
