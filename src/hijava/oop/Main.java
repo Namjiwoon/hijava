@@ -3,6 +3,7 @@ package hijava.oop;
 import java.util.ArrayList;
 
 import hijava.practice.Man;
+import java.util.Scanner;
 
 public class Main {
 
@@ -10,12 +11,13 @@ public class Main {
 		// momAndSon();
 		// drinkTest();
 		// eatTest();
-		//animal();
-		//netSport();
-		//software();
-		//testInter();
-		total();
-		
+		// animal();
+		// netSport();
+		// software();
+		// testInter();
+		// total();
+		calcoper();
+
 		/*
 		 * ArrayList<Man> people = new ArrayList<>(9);
 		 * 
@@ -32,50 +34,81 @@ public class Main {
 		 * }
 		 */
 	}
+
+	private static void calcoper() {
+		Scanner scanner = new Scanner(System.in);
+		
+		int x = inputScanNumber(scanner, "x값을 입력하세요 >> ");
+		int y = inputScanNumber(scanner, "y값을 입력하세요 >> ");
+		System.out.println("y=" + y);
+
+		System.out.print("연산자(* 또는 /)를 입력하세요 >>");
+		String oper = inputScan(scanner);
+		
+		CalcOper cal = new CalcOper();
+		if (oper == "*") {
+			cal.mul(x, y);
 	
+		} else if (oper == "/") {
+			cal.div(x, y);
+		}
+		
+		scanner.close();
+	}
+
+	private static int inputScanNumber(Scanner scanner, String msg) {
+		System.out.print(msg);
+		int x = Integer.parseInt(scanner.nextLine());
+		return x;
+	}
+	
+	private static String inputScan(Scanner scanner) {
+		return scanner.nextLine();
+	}
+
 	private static void total() {
-		int[] arr = new int[] {1, 2, 5, 9};
+		int[] arr = new int[] { 1, 2, 5, 9 };
 		Subtotal tt = new Subtotal();
 		Total st = new TotalImpl();
-		
+
 		System.out.println("Total=" + st.sum(arr));
 		System.out.println("Avg=" + tt.avg(arr));
 	}
-	
+
 	private static void testInter() {
 		TestInterface ti = new TestImpl();
-		
+
 		int i = 10, j = 5;
 		ti.max(i, j);
 		TestInterface.out(100);
 	}
-	
+
 	private static void software() {
 		SoftWare web = new WebSite();
 		SoftWare app = new MobileApp();
-		
+
 		web.product();
 		System.out.println("-------------");
 		app.product();
 	}
-	
+
 	private static void netSport() {
 		NetSport pp = new PingPong();
 		NetSport te = new Tennis();
-		
+
 		pp.play();
 		System.out.println("-------------");
 		te.play();
 	}
-	
+
 	private static void animal() {
 		Animal dog = new Dog();
 		Animal cat = new Cat();
-		
+
 		barkAnimal(dog);
 		barkAnimal(cat);
 	}
-	
+
 	private static void barkAnimal(Animal ani) {
 		ani.bark();
 	}
@@ -83,20 +116,20 @@ public class Main {
 	private static void eatTest() {
 		Man korean = new Korean();
 		Man american = new American();
-		
+
 		eat(korean);
 		eat(american);
 	}
 
 	private static void eat(Man m) {
 		if (m instanceof Korean) {
-			((Korean)m).eatRice();
+			((Korean) m).eatRice();
 		} else if (m instanceof American) {
-			((American)m).eatBread();
+			((American) m).eatBread();
 		} else {
 			System.out.println("Error");
 		}
-		
+
 	}
 
 	private static void momAndSon() {
