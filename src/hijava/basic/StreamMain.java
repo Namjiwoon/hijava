@@ -1,5 +1,8 @@
 package hijava.basic;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -10,7 +13,19 @@ public class StreamMain {
 	public static void main(String[] args) {
 //		test1();
 //		test2();
-		tryThis();
+//		tryThis();
+		test6();
+	}
+
+	//좋은 코드!!
+	private static void test6() {
+		try(FileInputStream fis = new FileInputStream("test.txt")) {
+			System.out.println("000000000000000000000");
+		} catch (FileNotFoundException e) {
+			System.out.println("test.txt파일이 없어요!!");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	private static void tryThis() {
