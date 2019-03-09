@@ -4,11 +4,35 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class StreamMain {
 	public static void main(String[] args) {
-		test1();
-		test2();
+//		test1();
+//		test2();
+		tryThis();
+	}
+
+	private static void tryThis() {
+		List<Student> students = new ArrayList<>();
+		students.add(new Student(90, "홍길동"));
+		students.add(new Student(80, "김일수"));
+		students.add(new Student(75, "김이수"));
+		students.add(new Student(95, "김삼수"));
+		
+		// 1
+		students.forEach(s -> System.out.println(s.getName()));
+		
+		//2
+		Student[] arr = new Student[students.size()];
+		students.toArray(arr);
+		
+		int sum = Arrays.stream(arr).mapToInt(s -> s.getId()).sum();
+		double avg = Arrays.stream(arr).mapToInt(s -> s.getId()).average().getAsDouble();
+		System.out.println("sum=" + sum + ", avg=" + avg);
+		
+		//3
+		Arrays.stream(arr).filter(s -> s.getId() >= 90).forEach(s -> System.out.println(s));
 	}
 
 	private static void test2() {
@@ -28,6 +52,7 @@ public class StreamMain {
 	}
 
 	private static void test1() {
+
 		List<Student> students = new ArrayList<>();
 		students.add(new Student(100, "Hong100"));
 		students.add(new Student(20, "Lim20"));
